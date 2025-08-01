@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+
+/* Custom Space Theme Variables */
+:root {
+  --space-dark: #0A0F2D;
+  --space-accent: #6C63FF;
+  --space-glow: #00F5FF;
+  --nebula-primary: rgba(108, 99, 255, 0.2);
+  --nebula-secondary: rgba(0, 245, 255, 0.2);
+}
+
+/* Global Styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(
+    135deg,
+    var(--space-dark) 0%,
+    #1a1f3c 50%,
+    var(--space-dark) 100%
+  );
+  color: white;
+}
+
+/* Space-themed Animations */
+@keyframes glow {
+  0% { box-shadow: 0 0 5px var(--space-glow); }
+  50% { box-shadow: 0 0 20px var(--space-glow); }
+  100% { box-shadow: 0 0 5px var(--space-glow); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Custom Classes */
+.space-card {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.space-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  animation: glow 2s infinite;
+}
+
+.floating-element {
+  animation: float 6s ease-in-out infinite;
+}
+
+.nebula-bg {
+  background: linear-gradient(
+    45deg,
+    var(--nebula-primary),
+    var(--nebula-secondary)
+  );
+}
+
+/* Glassmorphism Effects */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Text Gradients */
+.space-text {
+  background: linear-gradient(90deg, #fff, var(--space-glow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Text Styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+}
+
+p, span, a {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
+button {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+
+code {
+  font-family: 'Fira Code', monospace;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--space-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--space-accent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--space-glow);
+}
+
+/* Loading Animation */
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.5; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.loading-pulse {
+  animation: pulse 2s infinite;
+}
